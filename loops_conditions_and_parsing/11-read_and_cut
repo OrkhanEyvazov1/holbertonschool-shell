@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# cmt 
+while IFS = read -r i
+do
+    echo "$i" | cut -d ':' -f1,3,6
+done < /etc/passwd
