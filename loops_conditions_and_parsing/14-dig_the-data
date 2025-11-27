@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #digging
-awk '{counts[$1 " " $9]++} 
-     END {
-         for (key in counts) {
-             print counts[key], key
-         }
-     }' apache-access.log | sort -n -r -k1,1
+awk '{print $1, $9}' apache-access.log \
+| sort \
+| uniq -c \
+| sort -nr -k1,1
+
