@@ -3,7 +3,6 @@
 cleanup() {
     echo ""
     echo "I am invincible!!!"
-    exit 0
 }
 trap cleanup SIGTERM
 
