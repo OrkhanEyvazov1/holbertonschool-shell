@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 #using trap
-cleanup() {
-    echo ""
+termer() {
     echo "I hate the kill command"
+    rm -f /var/run/myscript.pid
+    exit 0
 }
-love() {
+inter() {
 	echo ""
 	echo "Y U no love me?!"
 }
-delandtrmt() {
-	rm /var/run/myscript.pid
-	kill(getpid(), sig)
+quiter() {
+	rm -f /var/run/myscript.pid
+        exit 0
 }
-trap cleanup SIGTERM
-trap love SIGINT
-trap delandtrmt SIGQUIT
-trap delandtrmt SIGTERM
+
+trap termer SIGTERM
+trap inter SIGINT
+trap quiter SIGQUIT
 
 echo $$ > /var/run/myscript.pid
 
