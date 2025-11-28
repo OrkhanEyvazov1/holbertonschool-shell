@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#using trap
+cleanup() {
+    echo ""
+    echo "I hate the kill command"
+}
+love() {
+	echo ""
+	echo "Y U no love me?!"
+}
+delandtrmt() {
+	rm /var/run/myscript.pid
+	kill(getpid(), sig)
+}
+trap cleanup SIGTERM
+trap love SIGINT
+trap delandtrmt SIGQUIT
+trap delandtrmt SIGTERM
+
+echo $$ > /var/run/myscript.pid
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
