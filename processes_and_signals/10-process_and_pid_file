@@ -6,11 +6,10 @@ echo $BASHPID > $PIDFILE
 
 termer() {
     echo "I hate the kill command"
-    rm -f /var/run/myscript.pid
+    rm -f $PIDFILE
     exit 0
 }
 inter() {
-	echo ""
 	echo "Y U no love me?!"
 }
 quiter() {
@@ -24,5 +23,5 @@ trap quiter SIGQUIT
 
 while true; do
     echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
