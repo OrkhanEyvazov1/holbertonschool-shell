@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #using trap
 PIDFILE="/var/run/myscript.pid"
-
+sudo chown student_jail:student_jail /var/run/myscriptsudo chown student_jail:student_jail /var/run/myscript.pid
 echo $BASHPID > $PIDFILE
 
 termer() {
