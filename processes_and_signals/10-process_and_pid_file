@@ -18,7 +18,7 @@ trap termer SIGTERM
 trap inter SIGINT
 trap quiter SIGQUIT
 
-echo $$ > /var/run/myscript.pid
+echo $BASHPID > /var/run/myscript.pid
 
 while true; do
     echo "To infinity and beyond"
