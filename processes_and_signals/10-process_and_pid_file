@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 #using trap
+PIDFILE="/var/run/myscript.pid"
+
+echo $BASHPID > $PIDFILE
+
 termer() {
     echo "I hate the kill command"
     rm -f /var/run/myscript.pid
@@ -10,15 +14,13 @@ inter() {
 	echo "Y U no love me?!"
 }
 quiter() {
-	rm -f /var/run/myscript.pid
+	rm -f $PIDFILE
         exit 0
 }
 
 trap termer SIGTERM
 trap inter SIGINT
 trap quiter SIGQUIT
-
-echo $BASHPID > /var/run/myscript.pid
 
 while true; do
     echo "To infinity and beyond"
